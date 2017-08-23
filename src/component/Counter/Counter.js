@@ -26,10 +26,10 @@ export default class Counter extends Component {
     const { counter, increment, incrementIfOdd} = this.props;
     return(
       <div>
-        <button onClick={increment}>
+        <button className="btn btn-default" onClick={increment}>
            You have clicked me {counter} time{counter === 1 ? '' : 's'}.
         </button>
-        <button onClick={incrementIfOdd}> 奇数加法 </button>
+        <button className="btn btn-default" onClick={incrementIfOdd}> 奇数加法 </button>
       </div>
     )
   }
