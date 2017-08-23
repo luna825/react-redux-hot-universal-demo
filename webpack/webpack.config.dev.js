@@ -23,7 +23,8 @@ const config = {
           {
             loader: 'babel-loader',
             options:{
-              presets: ['env', 'react', 'stage-0']
+              presets: ['env', 'react', 'stage-0'],
+              plugins: ['transform-decorators-legacy']
             }
           }
         ]
@@ -37,7 +38,11 @@ const config = {
       }
     }),
     new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  resolve: {
+    modules: ["node_modules", 'src'],
+    extensions: [".js", ".json", ".jsx", ".css"]
+  }
 }
 
 module.exports = config
