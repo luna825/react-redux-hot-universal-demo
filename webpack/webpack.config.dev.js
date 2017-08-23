@@ -4,6 +4,9 @@ const webpack = require('webpack')
 
 const config = {
   entry: [
+    'webpack-hot-middleware/client?reload=true',
+    'react-hot-loader/patch',
+    'webpack/hot/only-dev-server',
     path.resolve(__dirname, '../src/index.js')
   ],
   output: {
@@ -20,7 +23,7 @@ const config = {
           {
             loader: 'babel-loader',
             options:{
-              presets: ['env', 'react']
+              presets: ['env', 'react', 'stage-0']
             }
           }
         ]
@@ -32,7 +35,8 @@ const config = {
       "process.env":{
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ]
 }
 
